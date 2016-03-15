@@ -4,8 +4,6 @@ import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import org.apache.commons.math3.ode.FirstOrderIntegrator;
 import org.apache.commons.math3.ode.nonstiff.DormandPrince853Integrator;
 
-import java.util.List;
-
 public class Integrator {
     private static final double TIME = 30.0;
 
@@ -15,9 +13,9 @@ public class Integrator {
         mStepHandler = new SimpleStepHandler();
     }
 
-    public List<Point> integrate() {
+    public SeriesContainer integrate() {
         getIntegrator();
-        return mStepHandler.getPoints();
+        return mStepHandler.getSeriesContainer();
     }
 
     public FirstOrderIntegrator getIntegrator() {

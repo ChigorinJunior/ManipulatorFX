@@ -21,7 +21,7 @@ public class PlotDrawer {
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("t");
-        //creating the chart
+        //creating the chart1
         final LineChart<Number,Number> lineChart = new LineChart<>(xAxis,yAxis);
 
         lineChart.setTitle("q1");

@@ -10,11 +10,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+<AnchorPane minHeight="545.0" minWidth="802.0" prefHeight="641.0" prefWidth="901.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
   <children>
-    <AnchorPane prefHeight="545.0" prefWidth="802.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <Button layoutX="111.0" layoutY="305.0" mnemonicParsing="false" onAction="#drawChart" text="Построить графики" />
+    <TextField layoutX="39.0" layoutY="102.0" prefWidth="200.0" />
+    <GridPane layoutX="346.0" layoutY="7.0" prefHeight="634.0" prefWidth="554.9998779296875">
       <children>
-        <LineChart id="LineChart" fx:id="chart" layoutX="288.0" layoutY="50.0">
+        <LineChart fx:id="chart1" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -22,15 +24,56 @@
             <NumberAxis side="LEFT" />
           </yAxis>
         </LineChart>
-        <Button layoutX="111.0" layoutY="305.0" mnemonicParsing="false" onAction="#drawChart" text="Button" />
-        <TextField layoutX="39.0" layoutY="102.0" prefWidth="200.0" />
+        <LineChart fx:id="chart2" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+          <xAxis>
+            <NumberAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+            <NumberAxis side="LEFT" />
+          </yAxis>
+        </LineChart>
+        <LineChart fx:id="chart3" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+          <xAxis>
+            <NumberAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+            <NumberAxis side="LEFT" />
+          </yAxis>
+        </LineChart>
+        <LineChart fx:id="chart4" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <xAxis>
+            <NumberAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+            <NumberAxis side="LEFT" />
+          </yAxis>
+        </LineChart>
+        <LineChart fx:id="chart5" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+          <xAxis>
+            <NumberAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+            <NumberAxis side="LEFT" />
+          </yAxis>
+        </LineChart>
+        <LineChart fx:id="chart6" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <xAxis>
+            <NumberAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+            <NumberAxis side="LEFT" />
+          </yAxis>
+        </LineChart>
       </children>
-    </AnchorPane>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
   </children>
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-</GridPane>
+</AnchorPane>

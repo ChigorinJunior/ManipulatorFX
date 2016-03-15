@@ -3,14 +3,13 @@ package sample;
 import org.apache.commons.math3.ode.sampling.StepHandler;
 import org.apache.commons.math3.ode.sampling.StepInterpolator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SimpleStepHandler implements StepHandler {
-    private List<Point> mPoints;
+    public static final int SERIES_COUNT = 6;
+
+    private SeriesContainer mSeriesContainer;
 
     public SimpleStepHandler() {
-        mPoints = new ArrayList<>();
+        mSeriesContainer = new SeriesContainer(SERIES_COUNT);
     }
 
     @Override
@@ -23,10 +22,12 @@ public class SimpleStepHandler implements StepHandler {
         double   t = interpolator.getCurrentTime();
         double[] y = interpolator.getInterpolatedState();
 
-        mPoints.add(new Point((float)t, (float)y[0]));
+        for (int i = 0; i < SERIES_COUNT; i++) {
+            mSeriesContainer.getSeries(i).add(new Point((float) t, (float) y[i]));
+        }
     }
 
-    public List<Point> getPoints() {
-        return mPoints;
+    public SeriesContainer getSeriesContainer() {
+        return mSeriesContainer;
     }
 }
