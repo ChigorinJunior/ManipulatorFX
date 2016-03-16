@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.chart.LineChart?>
@@ -10,9 +11,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<AnchorPane minHeight="545.0" minWidth="802.0" prefHeight="641.0" prefWidth="901.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+<AnchorPane minHeight="545.0" minWidth="802.0" prefHeight="766.0" prefWidth="1001.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
   <children>
-    <Button layoutX="75.0" layoutY="566.0" mnemonicParsing="false" onAction="#drawChart" text="Построить графики" />
+    <Button layoutX="66.0" layoutY="699.0" mnemonicParsing="false" onAction="#drawChart" prefHeight="34.0" prefWidth="147.0" text="Построить графики" />
     <GridPane layoutX="346.0" layoutY="7.0" prefHeight="634.0" prefWidth="554.9998779296875">
       <children>
         <LineChart fx:id="chart1" createSymbols="false" legendVisible="false" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" style="" GridPane.columnIndex="0" GridPane.rowIndex="0">
@@ -74,7 +75,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
-    <GridPane layoutX="36.0" layoutY="130.0" prefHeight="345.0" prefWidth="259.0">
+    <GridPane gridLinesVisible="false" layoutX="46.0" layoutY="9.0" prefHeight="-1.0" prefWidth="-1.0">
       <children>
         <Label text="J01" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <TextField fx:id="textField1" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
@@ -103,7 +104,25 @@
         <Label text="g" GridPane.columnIndex="0" GridPane.rowIndex="12" />
         <TextField fx:id="textField13" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
       </children>
+      <padding>
+        <Insets />
+      </padding>
+      <rowConstraints>
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+        <RowConstraints maxHeight="44.0" prefHeight="44.0" />
+      </rowConstraints>
     </GridPane>
-    <Button layoutX="38.0" layoutY="485.0" mnemonicParsing="false" onAction="#setDefaults" prefWidth="195.0" text="Параметры по умолчанию" />
+    <Button layoutX="42.0" layoutY="631.0" mnemonicParsing="false" onAction="#setDefaults" prefWidth="195.0" text="Параметры по умолчанию" />
   </children>
 </AnchorPane>
