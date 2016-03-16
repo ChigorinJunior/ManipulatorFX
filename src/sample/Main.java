@@ -11,7 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Трехзвенный манипулятор");
-        primaryStage.setScene(new Scene(root, 545, 802));
+        primaryStage.setScene(new Scene(root, 1000, 700));
         primaryStage.show();
     }
 

@@ -12,11 +12,10 @@
 
 <AnchorPane minHeight="545.0" minWidth="802.0" prefHeight="641.0" prefWidth="901.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
   <children>
-    <Button layoutX="111.0" layoutY="305.0" mnemonicParsing="false" onAction="#drawChart" text="Построить графики" />
-    <TextField layoutX="39.0" layoutY="102.0" prefWidth="200.0" />
+    <Button layoutX="75.0" layoutY="566.0" mnemonicParsing="false" onAction="#drawChart" text="Построить графики" />
     <GridPane layoutX="346.0" layoutY="7.0" prefHeight="634.0" prefWidth="554.9998779296875">
       <children>
-        <LineChart fx:id="chart1" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <LineChart fx:id="chart1" createSymbols="false" legendVisible="false" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" style="" GridPane.columnIndex="0" GridPane.rowIndex="0">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -24,7 +23,7 @@
             <NumberAxis side="LEFT" />
           </yAxis>
         </LineChart>
-        <LineChart fx:id="chart2" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <LineChart fx:id="chart2" createSymbols="false" legendVisible="false" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -32,7 +31,7 @@
             <NumberAxis side="LEFT" />
           </yAxis>
         </LineChart>
-        <LineChart fx:id="chart3" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <LineChart fx:id="chart3" createSymbols="false" legendVisible="false" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -40,7 +39,7 @@
             <NumberAxis side="LEFT" />
           </yAxis>
         </LineChart>
-        <LineChart fx:id="chart4" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <LineChart fx:id="chart4" createSymbols="false" legendVisible="false" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -48,7 +47,7 @@
             <NumberAxis side="LEFT" />
           </yAxis>
         </LineChart>
-        <LineChart fx:id="chart5" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <LineChart fx:id="chart5" createSymbols="false" legendVisible="false" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -56,7 +55,7 @@
             <NumberAxis side="LEFT" />
           </yAxis>
         </LineChart>
-        <LineChart fx:id="chart6" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <LineChart fx:id="chart6" createSymbols="false" legendVisible="false" minHeight="120.5" minWidth="164.0" prefHeight="120.5" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -75,5 +74,36 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
+    <GridPane layoutX="36.0" layoutY="130.0" prefHeight="345.0" prefWidth="259.0">
+      <children>
+        <Label text="J01" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="textField1" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="m2" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="textField2" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label prefWidth="10.999908447265625" text="m30" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="textField3" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="l2" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="textField4" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Label text="r2" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="textField5" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Label text="r3" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextField fx:id="textField6" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label text="k1" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <TextField fx:id="textField7" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Label text="k2" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <TextField fx:id="textField8" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Label text="k3" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <TextField fx:id="textField9" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+        <Label text="mu1" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+        <TextField fx:id="textField10" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+        <Label text="mu2" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+        <TextField fx:id="textField11" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+        <Label text="mu3" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+        <TextField fx:id="textField12" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+        <Label text="g" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+        <TextField fx:id="textField13" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+      </children>
+    </GridPane>
+    <Button layoutX="38.0" layoutY="485.0" mnemonicParsing="false" onAction="#setDefaults" prefWidth="195.0" text="Параметры по умолчанию" />
   </children>
 </AnchorPane>

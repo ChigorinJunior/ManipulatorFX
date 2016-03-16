@@ -13,14 +13,14 @@ public class Integrator {
         mStepHandler = new SimpleStepHandler();
     }
 
-    public SeriesContainer integrate() {
-        getIntegrator();
+    public SeriesContainer integrate(SystemParameters systemParameters) {
+        getIntegrator(systemParameters);
         return mStepHandler.getSeriesContainer();
     }
 
-    public FirstOrderIntegrator getIntegrator() {
+    public FirstOrderIntegrator getIntegrator(SystemParameters systemParameters) {
         FirstOrderIntegrator dp853 = new DormandPrince853Integrator(1.0e-8, 100.0, 1.0e-10, 1.0e-10);
-        FirstOrderDifferentialEquations ode = new ManipulatorODE();
+        FirstOrderDifferentialEquations ode = new ManipulatorODE(systemParameters);
         double[] y = new double[] {0.2, 0, 0.2, 0, 0.2, 0}; // initial state
         dp853.addStepHandler(mStepHandler);
         dp853.integrate(ode, 0.0, y, TIME, y);

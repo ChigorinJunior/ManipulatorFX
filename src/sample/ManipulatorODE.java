@@ -19,7 +19,23 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
     double mu3 = 1;
     double g = 9.81;
 
-    public ManipulatorODE() {}
+    public ManipulatorODE(SystemParameters systemParameters) {
+        double[] parameters = systemParameters.getParameters();
+
+        J01 = parameters[0];
+        m2 = parameters[1];
+        m30 = parameters[2];
+        l2 = parameters[3];
+        r2 = parameters[4];
+        r3 = parameters[5];
+        k1 = parameters[6];
+        k2 = parameters[7];
+        k3 = parameters[8];
+        mu1 = parameters[9];
+        mu2 = parameters[10];
+        mu3 = parameters[11];
+        g = parameters[12];
+    }
 
     public int getDimension() {
         return DIMENSION;
