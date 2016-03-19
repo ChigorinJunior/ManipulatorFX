@@ -23,7 +23,11 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
     double mu3 = 1;
     double g = 9.81;
 
-    public ManipulatorODE(SystemParameters systemParameters) {
+    String U1 = "0";
+    String U2 = "0";
+    String U3 = "0";
+
+    public ManipulatorODE(SystemParameters systemParameters, ControlFunction... controlFunctions) {
         double[] parameters = systemParameters.getParameters();
 
         J01 = parameters[0];
@@ -39,6 +43,10 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         mu2 = parameters[10];
         mu3 = parameters[11];
         g = parameters[12];
+
+        U1 = controlFunctions[0].getFunction();
+        U2 = controlFunctions[1].getFunction();
+        U3 = controlFunctions[2].getFunction();
     }
 
     public int getDimension() {
@@ -69,9 +77,11 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         c9 = m30 * r3 * r3;
         c10 = m30 * g * r3 * Math.sin(q3);
 
-        double U1 = evaluateExpression("mu1 * sin(q1)", constructMap(new Parameter("mu1", mu1), new Parameter("q1", q1)));
-        double U2 = evaluateExpression("mu2 * sin(q2)", constructMap(new Parameter("mu2", mu2), new Parameter("q2", q2)));
-        double U3 = evaluateExpression("mu3 * sin(q3)", constructMap(new Parameter("mu3", mu3), new Parameter("q3", q3)));
+        HashMap<String, Double> map = constructMap(t, y);
+
+        double U1 = evaluateExpression(this.U1, map);
+        double U2 = evaluateExpression(this.U2, map);
+        double U3 = evaluateExpression(this.U3, map);
 
         double x1 = U2-c6*dq3*dq3+c7*dq1*dq1-c8-k2*dq2;
         double x2 = U3+c6*dq2*dq2+c3*dq1*dq1-c10-k3*dq3;
@@ -94,12 +104,43 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         return expression1.evaluate();
     }
 
-    private HashMap<String, Double> constructMap(Parameter... parameters) {
-        HashMap<String, Double> map = new HashMap<>(parameters.length);
+    private HashMap<String, Double> constructMap(double t, double[] y) {
+        HashMap<String, Double> map = new HashMap<>();
+        double q1, dq1, q2, dq2, q3, dq3;
 
-        for(Parameter parameter: parameters) {
-            map.put(parameter.getKey(), parameter.getValue());
-        }
+        q1 = y[0];
+        dq1 = y[1];
+
+        q2 = y[2];
+        dq2 = y[3];
+
+        q3 = y[4];
+        dq3 = y[5];
+
+        map.put("q1", q1);
+        map.put("dq1", dq1);
+        map.put("q2", q2);
+        map.put("dq2", dq2);
+        map.put("q3", q3);
+        map.put("dq3", dq3);
+        map.put("t", t);
+
+        map.put("J01", this.J01);
+        map.put("m2", this.m2);
+        map.put("m30", this.m30);
+        map.put("l2", this.l2);
+        map.put("r2", this.r2);
+        map.put("r3", this.r3);
+
+        map.put("k1", this.k1);
+        map.put("k2", this.k2);
+        map.put("k3", this.k3);
+
+        map.put("mu1", this.mu1);
+        map.put("mu2", this.mu2);
+        map.put("mu3", this.mu3);
+
+        map.put("g", this.g);
 
         return map;
     }

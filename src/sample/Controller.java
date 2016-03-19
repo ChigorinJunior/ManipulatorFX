@@ -66,15 +66,26 @@ public class Controller {
     @FXML
     TextField textField13;
 
+    @FXML
+    TextField textField14;
+
+    @FXML
+    TextField textField15;
+
+    @FXML
+    TextField textField16;
+
     public void setDefaults(ActionEvent actionEvent) {
         setInitialConditions();
+        setInitialControlFunctions();
     }
 
     public void drawChart(ActionEvent actionEvent) {
         SystemParameters systemParameters = getInitialConditions();
+        ControlFunction[] controlFunctions = getControlFunctions();
 
         Integrator integrator = new Integrator();
-        SeriesContainer seriesContainer = integrator.integrate(systemParameters);
+        SeriesContainer seriesContainer = integrator.integrate(systemParameters, controlFunctions);
 
         chart1.getData().add(getSeriesByIndex(0, seriesContainer));
         chart2.getData().add(getSeriesByIndex(1, seriesContainer));
@@ -131,6 +142,20 @@ public class Controller {
         return new SystemParameters(parameters);
     }
 
+    private ControlFunction[] getControlFunctions() {
+        ControlFunction[] controlFunctions = new ControlFunction[3];
+
+        final String U1 = textField14.getText();
+        final String U2 = textField15.getText();
+        final String U3 = textField16.getText();
+
+        controlFunctions[0] = new ControlFunction(U1);
+        controlFunctions[1] = new ControlFunction(U2);
+        controlFunctions[2] = new ControlFunction(U3);
+
+        return controlFunctions;
+    }
+
     private void setInitialConditions() {
         double[] initialConditions = new SystemParameters().getParameters();
 
@@ -147,5 +172,13 @@ public class Controller {
         textField11.setText(String.valueOf(initialConditions[10]));
         textField12.setText(String.valueOf(initialConditions[11]));
         textField13.setText(String.valueOf(initialConditions[12]));
+    }
+
+    private void setInitialControlFunctions() {
+        ControlFunction[] controlFunctions = ControlFunction.initialControlFunctions;
+
+        textField14.setText(String.valueOf(controlFunctions[0]));
+        textField15.setText(String.valueOf(controlFunctions[1]));
+        textField16.setText(String.valueOf(controlFunctions[2]));
     }
 }
