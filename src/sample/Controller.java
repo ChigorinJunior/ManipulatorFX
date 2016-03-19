@@ -87,6 +87,13 @@ public class Controller {
         Integrator integrator = new Integrator();
         SeriesContainer seriesContainer = integrator.integrate(systemParameters, controlFunctions);
 
+        chart1.getData().clear();
+        chart2.getData().clear();
+        chart3.getData().clear();
+        chart4.getData().clear();
+        chart5.getData().clear();
+        chart6.getData().clear();
+
         chart1.getData().add(getSeriesByIndex(0, seriesContainer));
         chart2.getData().add(getSeriesByIndex(1, seriesContainer));
         chart3.getData().add(getSeriesByIndex(2, seriesContainer));
