@@ -1,6 +1,10 @@
 package sample;
 
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
+
+import java.util.HashMap;
 
 public class ManipulatorODE implements FirstOrderDifferentialEquations {
     private static final int DIMENSION = 6;
@@ -65,9 +69,9 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         c9 = m30 * r3 * r3;
         c10 = m30 * g * r3 * Math.sin(q3);
 
-        double U1 = -mu1 * Math.sin(q1);
-        double U2 = -mu2 * Math.sin(q2);
-        double U3 = -mu3 * Math.sin(q3);
+        double U1 = evaluateExpression("mu1 * sin(q1)", constructMap(new Parameter("mu1", mu1), new Parameter("q1", q1)));
+        double U2 = evaluateExpression("mu2 * sin(q2)", constructMap(new Parameter("mu2", mu2), new Parameter("q2", q2)));
+        double U3 = evaluateExpression("mu3 * sin(q3)", constructMap(new Parameter("mu3", mu3), new Parameter("q3", q3)));
 
         double x1 = U2-c6*dq3*dq3+c7*dq1*dq1-c8-k2*dq2;
         double x2 = U3+c6*dq2*dq2+c3*dq1*dq1-c10-k3*dq3;
@@ -78,5 +82,25 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         yDot[3] = (c5 * x2 - c9 * x1) / (c5 * c5 - c4 * c9);
         yDot[4] = dq3;
         yDot[5] = (c4 * x2 - c5 * x1) / (c4 * c9 - c5 * c5);
+    }
+
+    private double evaluateExpression(String expression, HashMap<String, Double> substitution) {
+        Expression expression1 = new ExpressionBuilder(expression).variables(substitution.keySet()).build();
+
+        for (String variable: substitution.keySet()) {
+            expression1.setVariable(variable, substitution.get(variable));
+        }
+
+        return expression1.evaluate();
+    }
+
+    private HashMap<String, Double> constructMap(Parameter... parameters) {
+        HashMap<String, Double> map = new HashMap<>(parameters.length);
+
+        for(Parameter parameter: parameters) {
+            map.put(parameter.getKey(), parameter.getValue());
+        }
+
+        return map;
     }
 }
