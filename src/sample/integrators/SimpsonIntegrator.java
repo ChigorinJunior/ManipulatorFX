@@ -4,6 +4,7 @@ public class SimpsonIntegrator {
     public double integrate(double[] t, double[] y) {
         int size = y.length;
 
+        // TODO: fix me
         if (size < 3) {
             return 0;
         }
@@ -15,7 +16,7 @@ public class SimpsonIntegrator {
             double b = t[i];
 
             double left = y[i-2];
-            double middle = y[i-2];
+            double middle = y[i-1];
             double right = y[i];
 
             sum += calculateOnLine(a, b, left, middle, right);

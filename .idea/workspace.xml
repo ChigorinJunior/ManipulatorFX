@@ -87,8 +87,8 @@
       <file leaf-file-name="SimpsonIntegrator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/integrators/SimpsonIntegrator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4755245">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.50524473">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -682,7 +682,7 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="763" y="45" width="1669" height="954" extended-state="0" />
+    <frame x="763" y="45" width="1669" height="954" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -815,20 +815,20 @@
         <state vertical-scroll-proportion="-30.73077">
           <caret line="122" column="16" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="16" />
           <folding>
-            <marker date="1458496313866" expanded="true" signature="59:63711" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="98:680" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="812:869" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="906:2737" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="1013:2641" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="1032:1816" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="1835:2619" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="2854:2917" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="2956:3030" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="2998:3030" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="61296:61313" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="61296:61331" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="61296:61344" placeholder="..." />
-            <marker date="1458496313866" expanded="true" signature="61296:61359" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="59:63711" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="98:680" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="812:869" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="906:2737" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="1013:2641" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="1032:1816" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="1835:2619" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="2854:2917" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="2956:3030" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="2998:3030" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="61296:61313" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="61296:61331" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="61296:61344" placeholder="..." />
+            <marker date="1458496316845" expanded="true" signature="61296:61359" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1119,8 +1119,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/integrators/SimpsonIntegrator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4755245">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.50524473">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding />
         </state>
       </provider>
