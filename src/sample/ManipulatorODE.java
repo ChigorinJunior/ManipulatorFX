@@ -23,6 +23,8 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
     double mu3 = 1;
     double g = 9.81;
 
+    double t = 30.0;
+
     String U1 = "0";
     String U2 = "0";
     String U3 = "0";
@@ -43,6 +45,8 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         mu2 = parameters[10];
         mu3 = parameters[11];
         g = parameters[12];
+
+        t = parameters[13];
 
         U1 = controlFunctions[0].getFunction();
         U2 = controlFunctions[1].getFunction();
@@ -71,7 +75,7 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         c3 = m30 * (l2 * Math.sin(q2) + r3 * Math.sin(q3)) * r3 * Math.sin(q3);
         c4 = m2 * r2 * r2 + m30 * l2 * l2;
         c5 = 0.5 * m30 * l2 * r3 * Math.cos(q2 - q3);
-        c6 = 0.5 * m30 * l2 * r3 * Math.cos(q2-q3);
+        c6 = 0.5 * m30 * l2 * r3 * Math.cos(q2 - q3);
         c7 = (m30 * (l2 * Math.sin(q2) + r3 * Math.sin(q3)) + (m2 * r2 * r2) * Math.sin(q2)) * Math.cos(q2);
         c8 = (m2 * r2 + m30 * l2) * g * Math.sin(q2);
         c9 = m30 * r3 * r3;

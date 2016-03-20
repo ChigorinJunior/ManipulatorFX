@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 
 import java.util.List;
@@ -75,6 +76,9 @@ public class Controller {
     @FXML
     TextField textField16;
 
+    @FXML
+    Slider timeSlider;
+
     public void setDefaults(ActionEvent actionEvent) {
         setInitialConditions();
         setInitialControlFunctions();
@@ -130,6 +134,8 @@ public class Controller {
         final double mu3 = Double.parseDouble(textField12.getText());
         final double g = Double.parseDouble(textField13.getText());
 
+        final double t = timeSlider.getValue();
+
         double[] parameters = new double[SystemParameters.PARAMETERS_COUNT];
 
         parameters[0] = J10;
@@ -145,6 +151,7 @@ public class Controller {
         parameters[10] = mu2;
         parameters[11] = mu3;
         parameters[12] = g;
+        parameters[13] = t;
 
         return new SystemParameters(parameters);
     }
@@ -179,6 +186,8 @@ public class Controller {
         textField11.setText(String.valueOf(initialConditions[10]));
         textField12.setText(String.valueOf(initialConditions[11]));
         textField13.setText(String.valueOf(initialConditions[12]));
+
+        timeSlider.setValue(initialConditions[13]);
     }
 
     private void setInitialControlFunctions() {

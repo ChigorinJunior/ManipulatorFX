@@ -5,8 +5,6 @@ import org.apache.commons.math3.ode.FirstOrderIntegrator;
 import org.apache.commons.math3.ode.nonstiff.DormandPrince853Integrator;
 
 public class Integrator {
-    private static final double TIME = 30.0;
-
     private SimpleStepHandler mStepHandler;
 
     public Integrator() {
@@ -23,7 +21,7 @@ public class Integrator {
         FirstOrderDifferentialEquations ode = new ManipulatorODE(systemParameters, controlFunctions);
         double[] y = new double[] {0.2, 0, 0.2, 0, 0.2, 0}; // initial state
         dp853.addStepHandler(mStepHandler);
-        dp853.integrate(ode, 0.0, y, TIME, y);
+        dp853.integrate(ode, 0.0, y, systemParameters.getTime(), y);
         return dp853;
     }
 }

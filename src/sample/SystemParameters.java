@@ -1,7 +1,8 @@
 package sample;
 
 public class SystemParameters {
-    public static final int PARAMETERS_COUNT = 13;
+    // system parameters count + time
+    public static final int PARAMETERS_COUNT = 13 + 1;
 
     double J01 = 0.1;
     double m2 = 15;
@@ -16,6 +17,8 @@ public class SystemParameters {
     double mu2 = 1;
     double mu3 = 1;
     double g = 9.81;
+
+    double t = 30.0;
 
     public SystemParameters() {}
 
@@ -33,6 +36,8 @@ public class SystemParameters {
         mu2 = parameters[10];
         mu3 = parameters[11];
         g = parameters[12];
+
+        t = parameters[13];
     }
 
     public double[] getParameters() {
@@ -52,6 +57,12 @@ public class SystemParameters {
         defaults[11] = mu3;
         defaults[12] = g;
 
+        defaults[13] = t;
+
         return defaults;
+    }
+
+    public double getTime() {
+        return t;
     }
 }
