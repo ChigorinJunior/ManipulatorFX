@@ -6,7 +6,10 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import org.codehaus.groovy.runtime.ArrayUtil;
+import sample.integrators.SimpsonIntegrator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -104,6 +107,8 @@ public class Controller {
         chart4.getData().add(getSeriesByIndex(3, seriesContainer));
         chart5.getData().add(getSeriesByIndex(4, seriesContainer));
         chart6.getData().add(getSeriesByIndex(5, seriesContainer));
+
+        checkSimpson();
     }
 
     @SuppressWarnings("unchecked")
@@ -196,5 +201,35 @@ public class Controller {
         textField14.setText(String.valueOf(controlFunctions[0]));
         textField15.setText(String.valueOf(controlFunctions[1]));
         textField16.setText(String.valueOf(controlFunctions[2]));
+    }
+
+    //TODO: for debug only
+    private void checkSimpson() {
+        double t0 = 0.0;
+        double t_max = 5.0;
+
+        double current = t0;
+
+        double h = 0.0001;
+
+        List<Double> t = new ArrayList<>();
+        List<Double> value = new ArrayList<>();
+
+        while (current < t_max) {
+            t.add(current);
+            value.add(Math.sin(current));
+            current += h;
+        }
+
+        double[] t_array = new double[t.size()];
+        double[] v_array = new double[value.size()];
+
+        for (int i = 0; i < t_array.length; i++) {
+            t_array[i] = t.get(i);
+            v_array[i] = value.get(i);
+        }
+
+        System.out.print("Simpson ");
+        System.out.print(new SimpsonIntegrator().integrate(t_array, v_array));
     }
 }
