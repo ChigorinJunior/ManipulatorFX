@@ -7,6 +7,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import org.codehaus.groovy.runtime.ArrayUtil;
+import sample.integrators.RectangleIntegrator;
 import sample.integrators.SimpsonIntegrator;
 
 import java.util.ArrayList;
@@ -90,6 +91,8 @@ public class Controller {
     public void drawChart(ActionEvent actionEvent) {
         SystemParameters systemParameters = getInitialConditions();
         ControlFunction[] controlFunctions = getControlFunctions();
+
+        checkSimpson();
 
         Integrator integrator = new Integrator();
         SeriesContainer seriesContainer = integrator.integrate(systemParameters, controlFunctions);
@@ -229,7 +232,7 @@ public class Controller {
             v_array[i] = value.get(i);
         }
 
-        System.out.print("Simpson ");
-        System.out.print(new SimpsonIntegrator().integrate(t_array, v_array));
+//        System.out.print("Rectangle ");
+//        System.out.print(new RectangleIntegrator().integrate(t_array, v_array));
     }
 }

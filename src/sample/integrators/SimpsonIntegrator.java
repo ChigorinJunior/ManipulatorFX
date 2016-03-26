@@ -1,5 +1,7 @@
 package sample.integrators;
 
+import java.util.List;
+
 public class SimpsonIntegrator {
     public double integrate(double[] t, double[] y) {
         int size = y.length;
@@ -27,5 +29,15 @@ public class SimpsonIntegrator {
 
     private double calculateOnLine(double a, double b, double left, double middle, double right) {
         return (b - a)/6 * (left + 4 * middle + right);
+    }
+
+    public static double[] fromList(List<Double> values) {
+        double[] convertedValues = new double[values.size()];
+
+        for (int i = 0; i < values.size(); i++) {
+            convertedValues[i] = values.get(i);
+        }
+
+        return convertedValues;
     }
 }

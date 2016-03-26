@@ -17,7 +17,7 @@ public class Integrator {
     }
 
     public FirstOrderIntegrator getIntegrator(SystemParameters systemParameters, ControlFunction... controlFunctions) {
-        FirstOrderIntegrator dp853 = new DormandPrince853Integrator(1.0e-8, 100.0, 1.0e-10, 1.0e-10);
+       FirstOrderIntegrator dp853 = new DormandPrince853Integrator(1.0e-6, 100.0, 1.0e-4, 1.0e-4);
         FirstOrderDifferentialEquations ode = new ManipulatorODE(systemParameters, controlFunctions);
         double[] y = new double[] {0.2, 0, 0.2, 0, 0.2, 0}; // initial state
         dp853.addStepHandler(mStepHandler);
