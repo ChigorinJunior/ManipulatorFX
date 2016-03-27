@@ -1,6 +1,9 @@
 package sample.integrators;
 
+import sample.evaluators.ExpressionEvaluator;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RectangleIntegrator {
@@ -13,10 +16,9 @@ public class RectangleIntegrator {
     private int mLeftIndex;
     private int mRightIndex;
 
-    private int mDiffId;
-
-    public RectangleIntegrator(String formula, double[] y, double h, int diffId) {
-        mDiffId = diffId;
+    public RectangleIntegrator(String formula, HashMap<String, Double> map, double h) {
+        mFormula = formula;
+//        mDiffId = diffId;
         mFormula = formula;
 
         double t = -h;
@@ -24,7 +26,9 @@ public class RectangleIntegrator {
 
         while(t <= 0.0) {
             mTimes.add(t);
-            mValues.add(f(t, 0, y[mDiffId]));
+            map.put("x", t);
+            double v = func(t, 0, map.get("q1"));
+            mValues.add(ExpressionEvaluator.evaluateExpression(mFormula, map));
             t += step;
         }
 
@@ -44,32 +48,28 @@ public class RectangleIntegrator {
         return sum;
     }
 
-    public double integrate(double[] t, double[] y) {
-        int size = y.length;
-
-        double sum = 0.0;
-
-        for (int i = 0; i < size - 1; i++) {
-            sum += (y[i] + y[i+1])/2 * (t[i+1] - t[i]);
-        }
-
-        return sum;
-    }
-
-    double f(double x, double t, double q) {
-        return Math.exp(x - t) * Math.sin(q);
-    }
-
-    public double makeStep(double t, double[] y) {
+    public double makeStep(HashMap<String, Double> map) {
         mRightIndex++;
 
-        mTimes.add(t);
-        mValues.add(y[mDiffId]);
+        double time = map.get("t");
+        mTimes.add(time);
+        map.put("x", 2 * time);
+
+        double val1 = func(time, 0, map.get("q1"));
+        double val2 = ExpressionEvaluator.evaluateExpression(mFormula, map);
+
+        mValues.add(val2);
+
+//        mValues.add(func(t, 0, y[mDiffId]));
 
         sum = (sum +
                 (mValues.get(mRightIndex) + mValues.get(mRightIndex - 1)) / 2 * (mTimes.get(mRightIndex) - mTimes.get(mRightIndex - 1)) -
                 (mValues.get(mLeftIndex) + mValues.get(mLeftIndex - 1)) / 2 * (mTimes.get(mLeftIndex) - mTimes.get(mLeftIndex - 1)));
 
         return sum;
+    }
+
+    double func(double x, double t, double q) {
+        return Math.exp(x - t) * Math.sin(q);
     }
 }

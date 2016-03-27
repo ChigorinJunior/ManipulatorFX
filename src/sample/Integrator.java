@@ -2,6 +2,7 @@ package sample;
 
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import org.apache.commons.math3.ode.FirstOrderIntegrator;
+import org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegrator;
 import org.apache.commons.math3.ode.nonstiff.DormandPrince853Integrator;
 
 public class Integrator {
@@ -17,7 +18,9 @@ public class Integrator {
     }
 
     public FirstOrderIntegrator getIntegrator(SystemParameters systemParameters, ControlFunction... controlFunctions) {
-       FirstOrderIntegrator dp853 = new DormandPrince853Integrator(1.0e-6, 100.0, 1.0e-4, 1.0e-4);
+ //       FirstOrderIntegrator dp853 = new ClassicalRungeKuttaIntegrator(1.0e-2);
+ //       FirstOrderIntegrator dp853 = new DormandPrince853Integrator(1.0e-6, 100.0, 1.0e-3, 1.0e-3);
+        FirstOrderIntegrator dp853 = new DormandPrince853Integrator(1.0e-6, 100.0, 1.0e-4, 1.0e-4);
         FirstOrderDifferentialEquations ode = new ManipulatorODE(systemParameters, controlFunctions);
         double[] y = new double[] {0.2, 0, 0.2, 0, 0.2, 0}; // initial state
         dp853.addStepHandler(mStepHandler);

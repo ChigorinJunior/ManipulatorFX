@@ -8,10 +8,16 @@ import java.util.HashMap;
 
 public class ExpressionEvaluator {
     public static double evaluateExpression(String expression, HashMap<String, Double> substitution) {
-        Expression expression1 = new ExpressionBuilder(expression)
-                .variables(substitution.keySet())
-                .functions(new CustomFunctionsFactory().getCustomFunctions())
-                .build();
+        Expression expression1 = null;
+
+        try {
+            expression1 = new ExpressionBuilder(expression)
+                    .variables(substitution.keySet())
+                    .functions(new CustomFunctionsFactory().getCustomFunctions())
+                    .build();
+        } catch (Exception ex) {
+            int i = 0;
+        }
 
         for (String variable: substitution.keySet()) {
             expression1.setVariable(variable, substitution.get(variable));

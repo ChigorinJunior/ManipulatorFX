@@ -5,7 +5,9 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import sample.domain.DiffValues;
 import sample.domain.Time;
+import sample.evaluators.ExpressionEvaluator;
 import sample.functions.CustomFunctionsFactory;
+import sample.functions.Integral;
 import sample.integrators.RectangleIntegrator;
 import sample.integrators.SimpsonIntegrator;
 
@@ -13,6 +15,8 @@ import java.util.*;
 
 public class ManipulatorODE implements FirstOrderDifferentialEquations {
     private static final int DIMENSION = 6;
+
+    private static ManipulatorODE mInstance;
 
     private Map<Time, DiffValues> mHistoryMap;
 
@@ -36,12 +40,20 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
     RectangleIntegrator mRectangleIntegrator2;
     RectangleIntegrator mRectangleIntegrator3;
 
-    String U1;
-    String U2;
-    String U3;
+    String U1 = "";
+    String U2 = "";
+    String U3 = "";
+
+    String mIntU1 = "";
+    String mIntU2 = "";
+    String mIntU3 = "";
+
+    HashMap<String, Double> map;
 
     public ManipulatorODE(SystemParameters systemParameters, ControlFunction... controlFunctions) {
         double[] parameters = systemParameters.getParameters();
+
+        mInstance = this;
 
         J01 = parameters[0];
         m2 = parameters[1];
@@ -59,9 +71,9 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
 
         t = parameters[13];
 
-        U1 = controlFunctions[0].getFunction();
-        U2 = controlFunctions[1].getFunction();
-        U3 = controlFunctions[2].getFunction();
+        translate(controlFunctions[0].getFunction(), 1);
+        translate(controlFunctions[1].getFunction(), 2);
+        translate(controlFunctions[2].getFunction(), 3);
 
         mHistoryMap = new LinkedHashMap<>();
     }
@@ -96,17 +108,17 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         c9 = m30*r3*r3;
         c10 = m30*g*r3*Math.sin(q3);
 
-        HashMap<String, Double> map = constructMap(t, y);
+         map = constructMap(t, y);
 
         if (Double.compare(0.0, t) == 0) {
-            mRectangleIntegrator1 = new RectangleIntegrator(U1, y, 1, 0);
-            mRectangleIntegrator2 = new RectangleIntegrator(U2, y, 1, 2);
-            mRectangleIntegrator3 = new RectangleIntegrator(U3, y, 1, 4);
+            mRectangleIntegrator1 = new RectangleIntegrator(mIntU1, map, 1);
+            mRectangleIntegrator2 = new RectangleIntegrator(mIntU2, map, 1);
+            mRectangleIntegrator3 = new RectangleIntegrator(mIntU3, map, 1);
         }
 
-        double U1 = calcU1(t, y);
-        double U2 = calcU2(t, y);
-        double U3 = calcU3(t, y);
+        double U1 = calcU1();
+        double U2 = calcU2();
+        double U3 = calcU3();
 
         double x1 = U2-c6*dq3*dq3+c7*dq1*dq1-c8-k2*dq2;
         double x2 = U3+c6*dq2*dq2+c3*dq1*dq1-c10-k3*dq3;
@@ -121,17 +133,8 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         System.out.println(t);
     }
 
-    private double evaluateExpression(String expression, HashMap<String, Double> substitution) {
-        Expression expression1 = new ExpressionBuilder(expression)
-                .variables(substitution.keySet())
-                .functions(new CustomFunctionsFactory().getCustomFunctions())
-                .build();
-
-        for (String variable: substitution.keySet()) {
-            expression1.setVariable(variable, substitution.get(variable));
-        }
-
-        return expression1.evaluate();
+    public static ManipulatorODE getInstance() {
+        return mInstance;
     }
 
     private HashMap<String, Double> constructMap(double t, double[] y) {
@@ -175,52 +178,63 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         return map;
     }
 
-    private double calcU1(double t, double[] y) {
-        return - mu1 * Math.sin(y[0]) - mu2 * Math.cos(y[0]) * mRectangleIntegrator1.makeStep(t, y);
+    private double calcU1() {
+        return ExpressionEvaluator.evaluateExpression(U1, map);
+//        return - mu1 * Math.sin(y[0]) - mu2 * Math.cos(y[0]) * mRectangleIntegrator1.makeStep(t, y);
     }
 
-    private double calcU2(double t, double[] y) {
-        return - mu2 * Math.cos(y[2]) * mRectangleIntegrator2.makeStep(t, y);
+    private double calcU2() {
+        return ExpressionEvaluator.evaluateExpression(U2, map);
+//        return - mu2 * Math.cos(y[2]) * mRectangleIntegrator2.makeStep(t, y);
     }
 
-    private double calcU3(double t, double[] y) {
-        return - mu2 * Math.cos(y[4]) * mRectangleIntegrator3.makeStep(t, y);
-    }
-
-    public double calculate(double t, double t_start, double t_end, int position) {
-        List<Double> times = new ArrayList<>();
-        List<DiffValues> diffValues = new ArrayList<>();
-        List<Double> values = new ArrayList<>();
-
-        for (Time time: mHistoryMap.keySet()) {
-            if (time.getTime() >= t_start && time.getTime() <= t_end) {
-                times.add(time.getTime());
-                diffValues.add(mHistoryMap.get(time));
-            }
-        }
-
-        for (int i = 0; i < times.size(); i++) {
-//            HashMap<String, Double> map = constructMap(t, diffValues.get(i).getValues());
-            double value = f(times.get(i), t, diffValues.get(i).getValues()[position]);
-            values.add(value);
-        }
-
-        double integrationValue = 0;
-
-        if (t_start >= 0) {
-            integrationValue = new SimpsonIntegrator().integrate(SimpsonIntegrator.fromList(times), SimpsonIntegrator.fromList(values));
-        } else {
-            int z = 0;
-//            integrationValue = new SimpsonIntegrator().integrate(SimpsonIntegrator.fromList(times), SimpsonIntegrator.fromList(values));
-        }
-
-
-//        System.out.println(t + " = " + integrationValue);
-
-        return integrationValue;
+    private double calcU3() {
+        return ExpressionEvaluator.evaluateExpression(U3, map);
+//        return - mu2 * Math.cos(y[4]) * mRectangleIntegrator3.makeStep(t, y);
     }
 
     double f(double x, double t, double q) {
         return Math.exp(x - t) * Math.sin(q);
+    }
+
+    private void translate(String function, int index) {
+        if (!function.contains(Integral.getName())) {
+            return;
+        }
+
+        int first = function.indexOf('<');
+        int last = function.lastIndexOf('>');
+
+        String[] parts = function.substring(first + 1, last).split(",");
+        String integrator = parts[parts.length - 1];
+        String resultFunction = function.replaceAll("<.*?>", "(" + index + ")");
+
+        switch (index) {
+            case 1:
+                U1 = resultFunction;
+                mIntU1 = integrator;
+                break;
+            case 2:
+                U2 = resultFunction;
+                mIntU2 = integrator;
+                break;
+            case 3:
+                U3 = resultFunction;
+                mIntU3 = integrator;
+                break;
+        }
+    }
+
+    public double calculate( int index) {
+        switch (index) {
+            case 1:
+                return mRectangleIntegrator1.makeStep(map);
+            case 2:
+                return mRectangleIntegrator2.makeStep(map);
+            case 3:
+                return mRectangleIntegrator3.makeStep(map);
+            default:
+                return 0;
+        }
     }
 }

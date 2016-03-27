@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Manipulator/sample/ManipulatorODE.class" afterPath="$PROJECT_DIR$/out/production/Manipulator/sample/ManipulatorODE.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Manipulator/sample/SystemParameters.class" afterPath="$PROJECT_DIR$/out/production/Manipulator/sample/SystemParameters.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Manipulator/sample/integrators/SimpsonIntegrator.class" afterPath="$PROJECT_DIR$/out/production/Manipulator/sample/integrators/SimpsonIntegrator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/ControlFunction.java" afterPath="$PROJECT_DIR$/src/sample/ControlFunction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Integrator.java" afterPath="$PROJECT_DIR$/src/sample/Integrator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/ManipulatorODE.java" afterPath="$PROJECT_DIR$/src/sample/ManipulatorODE.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/integrators/SimpsonIntegrator.java" afterPath="$PROJECT_DIR$/src/sample/integrators/SimpsonIntegrator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java" afterPath="$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java" afterPath="$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java" afterPath="$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,60 +70,81 @@
       <file leaf-file-name="ManipulatorODE.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/ManipulatorODE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.172413">
-              <caret line="210" column="74" selection-start-line="210" selection-start-column="74" selection-end-line="210" selection-end-column="74" />
+            <state vertical-scroll-proportion="-6.827586">
+              <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6907#6908#0" expanded="true" />
-                <element signature="e#6959#6960#0" expanded="true" />
+                <element signature="e#4065#4066#0" expanded="true" />
+                <element signature="e#4097#4098#0" expanded="true" />
+                <element signature="e#5649#5650#0" expanded="true" />
+                <element signature="e#5701#5702#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestFunctions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/test/TestFunctions.java">
+      <file leaf-file-name="ControlFunction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/ControlFunction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="10" column="80" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomFunctionsFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Signum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/functions/Signum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Integral.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/functions/Integral.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <element signature="e#214#215#0" expanded="true" />
-                <element signature="e#296#297#0" expanded="true" />
-                <element signature="e#690#691#0" expanded="true" />
-                <element signature="e#721#722#0" expanded="true" />
-                <element signature="e#749#750#0" expanded="true" />
-                <element signature="e#795#796#0" expanded="true" />
-                <element signature="e#823#824#0" expanded="true" />
-                <element signature="e#869#870#0" expanded="true" />
-                <element signature="e#902#903#0" expanded="true" />
-                <element signature="e#928#929#0" expanded="true" />
-                <element signature="e#961#962#0" expanded="true" />
-                <element signature="e#1002#1003#0" expanded="true" />
-                <element signature="e#1035#1036#0" expanded="true" />
-                <element signature="e#1087#1088#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#213#214#0" expanded="true" />
+                <element signature="e#240#241#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpressionEvaluator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Expression.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/net/objecthunter/exp4j/0.4.5/exp4j-0.4.5.jar!/net/objecthunter/exp4j/Expression.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.259259">
+              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExpressionEvaluator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.6081301">
+              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Double.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_71/src.zip!/java/lang/Double.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="998" column="22" selection-start-line="998" selection-start-column="22" selection-end-line="998" selection-end-column="22" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -134,20 +153,10 @@
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpsonIntegrator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/integrators/SimpsonIntegrator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -155,47 +164,24 @@
       <file leaf-file-name="RectangleIntegrator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="22.586206">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.379311">
+              <caret line="58" column="52" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1329#1330#0" expanded="true" />
-                <element signature="e#1381#1382#0" expanded="true" />
+                <element signature="e#1981#1982#0" expanded="true" />
+                <element signature="e#2033#2034#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Integrator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Integrator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Integrator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4699187">
-              <caret line="19" column="98" selection-start-line="19" selection-start-column="98" selection-end-line="19" selection-end-column="98" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DormandPrince853Integrator.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar!/org/apache/commons/math3/ode/nonstiff/DormandPrince853Integrator.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.259259">
-              <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SystemParameters.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/SystemParameters.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-              <folding>
-                <element signature="e#1460#1461#0" expanded="true" />
-                <element signature="e#1484#1485#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -234,20 +220,21 @@
         <option value="$PROJECT_DIR$/src/sample/SimpleStepHandler.java" />
         <option value="$PROJECT_DIR$/src/sample/Parameter.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/ControlFunction.java" />
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/functions/Signum.java" />
         <option value="$PROJECT_DIR$/src/sample/functions/CutomFunctionsFactory.java" />
-        <option value="$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java" />
         <option value="$PROJECT_DIR$/src/sample/integrators/RungeKuttaIntegrator.java" />
         <option value="$PROJECT_DIR$/src/sample/domain/Time.java" />
         <option value="$PROJECT_DIR$/src/sample/domain/DiffValues.java" />
         <option value="$PROJECT_DIR$/src/sample/integrators/SimpsonIntegrator.java" />
         <option value="$PROJECT_DIR$/src/sample/SystemParameters.java" />
-        <option value="$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/test/TestFunctions.java" />
+        <option value="$PROJECT_DIR$/src/sample/ControlFunction.java" />
+        <option value="$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java" />
+        <option value="$PROJECT_DIR$/src/sample/functions/Integral.java" />
         <option value="$PROJECT_DIR$/src/sample/ManipulatorODE.java" />
+        <option value="$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java" />
         <option value="$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java" />
         <option value="$PROJECT_DIR$/src/sample/Integrator.java" />
       </list>
@@ -262,8 +249,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="53" />
-    <option name="y" value="14" />
+    <option name="x" value="80" />
+    <option name="y" value="1" />
     <option name="width" value="1744" />
     <option name="height" value="1010" />
   </component>
@@ -332,94 +319,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integrators" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evaluators" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manipulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -785,7 +684,7 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="53" y="14" width="1744" height="1010" extended-state="0" />
+    <frame x="80" y="1" width="1744" height="1010" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -804,7 +703,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46666667" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44666666" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -833,13 +732,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Controller.java</url>
-          <line>96</line>
+          <url>file://$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java</url>
+          <line>18</line>
           <properties />
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sample/Controller.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -848,16 +753,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Integrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar!/org/apache/commons/math3/ode/FirstOrderIntegrator.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1022,23 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ControlFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding>
-            <element signature="e#351#352#0" expanded="false" />
-            <element signature="e#393#394#0" expanded="false" />
-            <element signature="e#428#429#0" expanded="false" />
-            <element signature="e#460#461#0" expanded="false" />
-            <element signature="e#508#509#0" expanded="false" />
-            <element signature="e#549#550#0" expanded="false" />
-            <element signature="e#595#596#0" expanded="false" />
-            <element signature="e#627#628#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1061,22 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5185184">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/functions/Signum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1224,36 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/objecthunter/exp4j/0.4.5/exp4j-0.4.5.jar!/net/objecthunter/exp4j/Expression.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.53809524">
-          <caret line="133" column="14" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="22.586206">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1381#1382#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar!/org/apache/commons/math3/ode/nonstiff/DormandPrince853Integrator.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.259259">
@@ -1267,42 +1099,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#961#962#0" expanded="true" />
-            <element signature="e#1002#1003#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ManipulatorODE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.172413">
-          <caret line="210" column="74" selection-start-line="210" selection-start-column="74" selection-end-line="210" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6907#6908#0" expanded="true" />
-            <element signature="e#6959#6960#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="false" />
+            <element signature="e#296#297#0" expanded="false" />
+            <element signature="e#690#691#0" expanded="false" />
+            <element signature="e#721#722#0" expanded="false" />
+            <element signature="e#749#750#0" expanded="false" />
+            <element signature="e#795#796#0" expanded="false" />
+            <element signature="e#823#824#0" expanded="false" />
+            <element signature="e#869#870#0" expanded="false" />
+            <element signature="e#902#903#0" expanded="false" />
+            <element signature="e#928#929#0" expanded="false" />
+            <element signature="e#961#962#0" expanded="false" />
+            <element signature="e#1002#1003#0" expanded="false" />
+            <element signature="e#1035#1036#0" expanded="false" />
+            <element signature="e#1087#1088#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1315,10 +1125,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/functions/Signum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ControlFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="80" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ManipulatorODE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.827586">
+          <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4065#4066#0" expanded="true" />
+            <element signature="e#4097#4098#0" expanded="true" />
+            <element signature="e#5649#5650#0" expanded="true" />
+            <element signature="e#5701#5702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Integrator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4699187">
-          <caret line="19" column="98" selection-start-line="19" selection-start-column="98" selection-end-line="19" selection-end-column="98" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.379311">
+          <caret line="58" column="52" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1981#1982#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/functions/Integral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#240#241#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/objecthunter/exp4j/0.4.5/exp4j-0.4.5.jar!/net/objecthunter/exp4j/Expression.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.259259">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/evaluators/ExpressionEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6081301">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
