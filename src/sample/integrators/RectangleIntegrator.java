@@ -1,6 +1,10 @@
 package sample.integrators;
 
+import net.objecthunter.exp4j.Expression;
+import sample.Evaluator;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RectangleIntegrator {
@@ -13,18 +17,24 @@ public class RectangleIntegrator {
     private int mLeftIndex;
     private int mRightIndex;
 
-    private int mDiffId;
+    private Expression mExpression;
 
-    public RectangleIntegrator(String formula, double[] y, double h, int diffId) {
-        mDiffId = diffId;
+    private HashMap<String, Double> mMap;
+
+    public RectangleIntegrator(String formula, double h, HashMap<String, Double> map) {
         mFormula = formula;
+
+        mMap = new HashMap<>(map);
+
+        mExpression = Evaluator.buildExpression(mFormula, mMap);
 
         double t = -h;
         double step = 0.001;
 
         while(t <= 0.0) {
             mTimes.add(t);
-            mValues.add(f(t, 0, y[mDiffId]));
+            mMap.put("x", t);
+            mValues.add(f(mMap));
             t += step;
         }
 
@@ -44,32 +54,29 @@ public class RectangleIntegrator {
         return sum;
     }
 
-    public double integrate(double[] t, double[] y) {
-        int size = y.length;
-
-        double sum = 0.0;
-
-        for (int i = 0; i < size - 1; i++) {
-            sum += (y[i] + y[i+1])/2 * (t[i+1] - t[i]);
-        }
-
-        return sum;
-    }
-
-    double f(double x, double t, double q) {
-        return Math.exp(x - t) * Math.sin(q);
-    }
-
-    public double makeStep(double t, double[] y) {
+    public double makeStep(double t, HashMap<String, Double> map) {
         mRightIndex++;
 
+        mMap = new HashMap<>(map);
+        mMap.put("x", t);
+
         mTimes.add(t);
-        mValues.add(y[mDiffId]);
+        mValues.add(f(mMap));
 
         sum = (sum +
                 (mValues.get(mRightIndex) + mValues.get(mRightIndex - 1)) / 2 * (mTimes.get(mRightIndex) - mTimes.get(mRightIndex - 1)) -
                 (mValues.get(mLeftIndex) + mValues.get(mLeftIndex - 1)) / 2 * (mTimes.get(mLeftIndex) - mTimes.get(mLeftIndex - 1)));
 
+        mLeftIndex++;
+
         return sum;
     }
+
+    double f(HashMap<String, Double> map) {
+        return Evaluator.evaluateExpression(mExpression, map);
+    }
+
+    //    double f(double x, double t, double q) {
+//        return Math.exp(x - t) * Math.sin(q);
+//    }
 }

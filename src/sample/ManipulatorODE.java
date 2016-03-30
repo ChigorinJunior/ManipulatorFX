@@ -99,14 +99,14 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         HashMap<String, Double> map = constructMap(t, y);
 
         if (Double.compare(0.0, t) == 0) {
-            mRectangleIntegrator1 = new RectangleIntegrator(U1, y, 1, 0);
-            mRectangleIntegrator2 = new RectangleIntegrator(U2, y, 1, 2);
-            mRectangleIntegrator3 = new RectangleIntegrator(U3, y, 1, 4);
+            mRectangleIntegrator1 = new RectangleIntegrator(U1, 1, map);
+            mRectangleIntegrator2 = new RectangleIntegrator(U2, 1, map);
+            mRectangleIntegrator3 = new RectangleIntegrator(U3, 1, map);
         }
 
-        double U1 = calcU1(t, y);
-        double U2 = calcU2(t, y);
-        double U3 = calcU3(t, y);
+        double U1 = calcU1(t, y, map);
+        double U2 = calcU2(t, y, map);
+        double U3 = calcU3(t, y, map);
 
         double x1 = U2-c6*dq3*dq3+c7*dq1*dq1-c8-k2*dq2;
         double x2 = U3+c6*dq2*dq2+c3*dq1*dq1-c10-k3*dq3;
@@ -119,19 +119,6 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         yDot[5] = (c4 * x2 - c5 * x1) / ( (c4 * c9 - c5 * c5) + 0.01);
 
         System.out.println(t);
-    }
-
-    private double evaluateExpression(String expression, HashMap<String, Double> substitution) {
-        Expression expression1 = new ExpressionBuilder(expression)
-                .variables(substitution.keySet())
-                .functions(new CustomFunctionsFactory().getCustomFunctions())
-                .build();
-
-        for (String variable: substitution.keySet()) {
-            expression1.setVariable(variable, substitution.get(variable));
-        }
-
-        return expression1.evaluate();
     }
 
     private HashMap<String, Double> constructMap(double t, double[] y) {
@@ -172,19 +159,21 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
 
         map.put("g", this.g);
 
+        map.put("x", 0.0);
+
         return map;
     }
 
-    private double calcU1(double t, double[] y) {
-        return - mu1 * Math.sin(y[0]) - mu2 * Math.cos(y[0]) * mRectangleIntegrator1.makeStep(t, y);
+    private double calcU1(double t, double[]y, HashMap<String, Double> map) {
+        return - mu1 * Math.sin(y[0]) - mu2 * Math.cos(y[0]) * mRectangleIntegrator1.makeStep(t, map);
     }
 
-    private double calcU2(double t, double[] y) {
-        return - mu2 * Math.cos(y[2]) * mRectangleIntegrator2.makeStep(t, y);
+    private double calcU2(double t, double[]y, HashMap<String, Double> map) {
+        return - mu2 * Math.cos(y[2]) * mRectangleIntegrator2.makeStep(t, map);
     }
 
-    private double calcU3(double t, double[] y) {
-        return - mu2 * Math.cos(y[4]) * mRectangleIntegrator3.makeStep(t, y);
+    private double calcU3(double t, double[]y, HashMap<String, Double> map) {
+        return - mu2 * Math.cos(y[4]) * mRectangleIntegrator3.makeStep(t, map);
     }
 
     public double calculate(double t, double t_start, double t_end, int position) {
