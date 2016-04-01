@@ -12,6 +12,8 @@ import sample.integrators.SimpsonIntegrator;
 import java.util.*;
 
 public class ManipulatorODE implements FirstOrderDifferentialEquations {
+    public static ManipulatorODE sInstance;
+
     private static final int DIMENSION = 6;
 
     private Map<Time, DiffValues> mHistoryMap;
@@ -32,6 +34,9 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
 
     double t = 30.0;
 
+    double mCurrentTime = 0.0;
+    HashMap<String, Double> map;
+
     RectangleIntegrator mRectangleIntegrator1;
     RectangleIntegrator mRectangleIntegrator2;
     RectangleIntegrator mRectangleIntegrator3;
@@ -39,6 +44,18 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
     String U1;
     String U2;
     String U3;
+
+    String mIntU1;
+    String mIntU2;
+    String mIntU3;
+
+    Expression mExpressionU1;
+    Expression mExpressionU2;
+    Expression mExpressionU3;
+
+    Expression mExpressionIntegralU1;
+    Expression mExpressionIntegralU2;
+    Expression mExpressionIntegralU3;
 
     public ManipulatorODE(SystemParameters systemParameters, ControlFunction... controlFunctions) {
         double[] parameters = systemParameters.getParameters();
@@ -59,11 +76,17 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
 
         t = parameters[13];
 
-        U1 = controlFunctions[0].getFunction();
-        U2 = controlFunctions[1].getFunction();
-        U3 = controlFunctions[2].getFunction();
+        U1 = replaceIntegrals(controlFunctions[0].getFunction(), 1);
+        U2 = replaceIntegrals(controlFunctions[1].getFunction(), 2);
+        U3 = replaceIntegrals(controlFunctions[2].getFunction(), 3);
+
+        mIntU1 = getIntegralFunction(controlFunctions[0].getFunction());
+        mIntU2 = getIntegralFunction(controlFunctions[1].getFunction());
+        mIntU3 = getIntegralFunction(controlFunctions[2].getFunction());
 
         mHistoryMap = new LinkedHashMap<>();
+
+        sInstance = this;
     }
 
     public int getDimension() {
@@ -96,13 +119,27 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         c9 = m30*r3*r3;
         c10 = m30*g*r3*Math.sin(q3);
 
-        HashMap<String, Double> map = constructMap(t, y);
+        map = constructMap(t, y);
+
+        mCurrentTime = t;
+
+        if (mExpressionU1 == null) {
+            mExpressionU1 = Evaluator.buildExpression(U1, map);
+            mExpressionU2 = Evaluator.buildExpression(U2, map);
+            mExpressionU3 = Evaluator.buildExpression(U3, map);
+        }
 
         if (Double.compare(0.0, t) == 0) {
-            mRectangleIntegrator1 = new RectangleIntegrator(U1, 1, map);
-            mRectangleIntegrator2 = new RectangleIntegrator(U2, 1, map);
-            mRectangleIntegrator3 = new RectangleIntegrator(U3, 1, map);
+            mRectangleIntegrator1 = new RectangleIntegrator(mIntU1, 1, map);
+            mRectangleIntegrator2 = new RectangleIntegrator(mIntU2, 1, map);
+            mRectangleIntegrator3 = new RectangleIntegrator(mIntU3, 1, map);
         }
+
+//        if (mExpressionIntegralU1 == null) {
+//            mExpressionIntegralU1 = Evaluator.buildExpression(mIntU1, map);
+//            mExpressionIntegralU2 = Evaluator.buildExpression(mIntU2, map);
+//            mExpressionIntegralU3 = Evaluator.buildExpression(mIntU3, map);
+//        }
 
         double U1 = calcU1(t, y, map);
         double U2 = calcU2(t, y, map);
@@ -165,15 +202,18 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
     }
 
     private double calcU1(double t, double[]y, HashMap<String, Double> map) {
-        return - mu1 * Math.sin(y[0]) - mu2 * Math.cos(y[0]) * mRectangleIntegrator1.makeStep(t, map);
+        return Evaluator.evaluateExpression(mExpressionU1, map);
+//        return - mu1 * Math.sin(y[0]) - mu2 * Math.cos(y[0]) * mRectangleIntegrator1.makeStep(t, map);
     }
 
     private double calcU2(double t, double[]y, HashMap<String, Double> map) {
-        return - mu2 * Math.cos(y[2]) * mRectangleIntegrator2.makeStep(t, map);
+        return Evaluator.evaluateExpression(mExpressionU2, map);
+//        return - mu2 * Math.cos(y[2]) * mRectangleIntegrator2.makeStep(t, map);
     }
 
     private double calcU3(double t, double[]y, HashMap<String, Double> map) {
-        return - mu2 * Math.cos(y[4]) * mRectangleIntegrator3.makeStep(t, map);
+        return Evaluator.evaluateExpression(mExpressionU3, map);
+//        return - mu2 * Math.cos(y[4]) * mRectangleIntegrator3.makeStep(t, map);
     }
 
     public double calculate(double t, double t_start, double t_end, int position) {
@@ -211,5 +251,35 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
 
     double f(double x, double t, double q) {
         return Math.exp(x - t) * Math.sin(q);
+    }
+
+    private String getIntegralFunction(String formula) {
+        if (formula.contains("Int")) {
+            int startPosition = formula.indexOf('<');
+            int endPosition = formula.indexOf('>');
+
+            String[] parts = formula.substring(startPosition, endPosition).split(",");
+
+            return parts[parts.length - 1].trim();
+        }
+
+        return "";
+    }
+
+    private String replaceIntegrals(String formula, int index) {
+        return formula.replaceAll("<.*?>", "(" + String.valueOf(index) + ")");
+    }
+
+    public double makeStep(int index) {
+        switch (index) {
+            case 1:
+                return mRectangleIntegrator1.makeStep(mCurrentTime, map);
+            case 2:
+                return mRectangleIntegrator2.makeStep(mCurrentTime, map);
+            case 3:
+                return mRectangleIntegrator3.makeStep(mCurrentTime, map);
+        }
+
+        return 0.0;
     }
 }
