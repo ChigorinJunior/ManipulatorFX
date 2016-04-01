@@ -6,9 +6,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import org.codehaus.groovy.runtime.ArrayUtil;
-import sample.integrators.RectangleIntegrator;
-import sample.integrators.SimpsonIntegrator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,8 +89,6 @@ public class Controller {
         SystemParameters systemParameters = getInitialConditions();
         ControlFunction[] controlFunctions = getControlFunctions();
 
-        checkSimpson();
-
         Integrator integrator = new Integrator();
         SeriesContainer seriesContainer = integrator.integrate(systemParameters, controlFunctions);
 
@@ -110,8 +105,6 @@ public class Controller {
         chart4.getData().add(getSeriesByIndex(3, seriesContainer));
         chart5.getData().add(getSeriesByIndex(4, seriesContainer));
         chart6.getData().add(getSeriesByIndex(5, seriesContainer));
-
-        checkSimpson();
     }
 
     @SuppressWarnings("unchecked")
