@@ -125,9 +125,17 @@ public class ManipulatorODE implements FirstOrderDifferentialEquations {
         }
 
         if (Double.compare(0.0, t) == 0) {
-            mRectangleIntegrator1 = new RectangleIntegrator(mIntU1, 1, map);
-            mRectangleIntegrator2 = new RectangleIntegrator(mIntU2, 1, map);
-            mRectangleIntegrator3 = new RectangleIntegrator(mIntU3, 1, map);
+            if (mIntU1 != null && !mIntU1.equals("")) {
+                mRectangleIntegrator1 = new RectangleIntegrator(mIntU1, 1, map);
+            }
+
+            if (mIntU2 != null && !mIntU2.equals("")) {
+                mRectangleIntegrator2 = new RectangleIntegrator(mIntU2, 1, map);
+            }
+
+            if (mIntU3 != null && !mIntU3.equals("")) {
+                mRectangleIntegrator3 = new RectangleIntegrator(mIntU3, 1, map);
+            }
         }
 
         double U1 = calcU1(t, y, map);
