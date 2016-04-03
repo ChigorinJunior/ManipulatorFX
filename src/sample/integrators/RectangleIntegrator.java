@@ -75,8 +75,4 @@ public class RectangleIntegrator {
     double f(HashMap<String, Double> map) {
         return Evaluator.evaluateExpression(mExpression, map);
     }
-
-    //    double f(double x, double t, double q) {
-//        return Math.exp(x - t) * Math.sin(q);
-//    }
 }

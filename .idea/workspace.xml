@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/ManipulatorODE.java" afterPath="$PROJECT_DIR$/src/sample/ManipulatorODE.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java" afterPath="$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,11 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManipulatorODE.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManipulatorODE.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/ManipulatorODE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25119236">
-              <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RectangleIntegrator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RectangleIntegrator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.054054055">
+              <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1877#1878#0" expanded="true" />
@@ -219,12 +219,12 @@
         <option value="$PROJECT_DIR$/src/sample/test/TestFunctions.java" />
         <option value="$PROJECT_DIR$/src/sample/Integrator.java" />
         <option value="$PROJECT_DIR$/src/sample/Evaluator.java" />
-        <option value="$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java" />
         <option value="$PROJECT_DIR$/src/sample/ControlFunction.java" />
         <option value="$PROJECT_DIR$/src/sample/functions/Integral.java" />
         <option value="$PROJECT_DIR$/src/sample/functions/CustomFunctionsFactory.java" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/ManipulatorODE.java" />
+        <option value="$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java" />
       </list>
     </option>
   </component>
@@ -1205,24 +1205,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/ManipulatorODE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1877#1878#0" expanded="true" />
-            <element signature="e#1946#1947#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ManipulatorODE.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/integrators/RectangleIntegrator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25119236">
-          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.054054055">
+          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1946#1947#0" expanded="true" />
           </folding>
         </state>
       </provider>
