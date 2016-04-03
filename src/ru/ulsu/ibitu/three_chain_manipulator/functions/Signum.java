@@ -1,4 +1,4 @@
-package sample.functions;
+package ru.ulsu.ibitu.three_chain_manipulator.functions;
 
 import net.objecthunter.exp4j.function.Function;
 

@@ -1,4 +1,4 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 import org.apache.commons.math3.ode.sampling.StepHandler;
 import org.apache.commons.math3.ode.sampling.StepInterpolator;

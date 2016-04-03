@@ -1,4 +1,4 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 public class SystemParameters {
     // system parameters count + time

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<AnchorPane blendMode="SRC_OVER" disable="false" focusTraversable="false" minHeight="545.0" minWidth="802.0" prefHeight="867.0" prefWidth="1001.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+<AnchorPane blendMode="SRC_OVER" disable="false" focusTraversable="false" minHeight="545.0" minWidth="802.0" prefHeight="867.0" prefWidth="1001.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.ulsu.ibitu.three_chain_manipulator.Controller">
   <children>
     <Button layoutX="558.0" layoutY="721.0" mnemonicParsing="false" onAction="#drawChart" prefHeight="34.0" prefWidth="147.0" text="Построить графики" />
     <GridPane layoutX="346.0" layoutY="7.0" prefHeight="634.0" prefWidth="554.9998779296875">

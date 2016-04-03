@@ -1,4 +1,4 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import org.apache.commons.math3.ode.FirstOrderIntegrator;

@@ -1,4 +1,4 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

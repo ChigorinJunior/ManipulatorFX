@@ -1,7 +1,7 @@
-package sample.integrators;
+package ru.ulsu.ibitu.three_chain_manipulator.integrators;
 
 import net.objecthunter.exp4j.Expression;
-import sample.Evaluator;
+import ru.ulsu.ibitu.three_chain_manipulator.Evaluator;
 
 import java.util.ArrayList;
 import java.util.HashMap;

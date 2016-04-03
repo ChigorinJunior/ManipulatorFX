@@ -1,4 +1,4 @@
-package sample.test;
+package ru.ulsu.ibitu.three_chain_manipulator.test;
 
 public class TestFunctions {
     private double alph;

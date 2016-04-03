@@ -1,4 +1,4 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;

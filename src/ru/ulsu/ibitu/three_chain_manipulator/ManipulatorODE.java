@@ -1,10 +1,10 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 import net.objecthunter.exp4j.Expression;
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
-import sample.domain.DiffValues;
-import sample.domain.Time;
-import sample.integrators.RectangleIntegrator;
+import ru.ulsu.ibitu.three_chain_manipulator.domain.DiffValues;
+import ru.ulsu.ibitu.three_chain_manipulator.domain.Time;
+import ru.ulsu.ibitu.three_chain_manipulator.integrators.RectangleIntegrator;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

@@ -1,4 +1,4 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

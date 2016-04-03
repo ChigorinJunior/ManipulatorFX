@@ -1,8 +1,8 @@
-package sample;
+package ru.ulsu.ibitu.three_chain_manipulator;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-import sample.functions.CustomFunctionsFactory;
+import ru.ulsu.ibitu.three_chain_manipulator.functions.CustomFunctionsFactory;
 
 import java.util.HashMap;
 

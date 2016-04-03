@@ -1,4 +1,4 @@
-package sample.domain;
+package ru.ulsu.ibitu.three_chain_manipulator.domain;
 
 import java.util.Arrays;
 
